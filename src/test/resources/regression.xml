@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Person unit tests ">
+
+<test name="Test all methods">
+
+    <packages>
+        <package name="person.man"/>
+        <package name="person.woman"/>
+    </packages>
+
+</test>
+</suite>

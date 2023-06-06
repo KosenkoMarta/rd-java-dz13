@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="dz-12">
+
+    <test name="Run all tests with data provider using">
+        <groups>
+            <run>
+                <include name="TestIsRetired"/>
+                <include name="TestIsNotRetired"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="person.man.ManIsRetiredTest"/>
+            <class name="person.woman.WomanIsRetiredTest"/>
+        </classes>
+    </test>
+
+</suite>
