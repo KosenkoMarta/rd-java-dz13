@@ -23,7 +23,7 @@ public class DBReader {
             ResultSet resultSet = sqlStatement.executeQuery(QUERY_SELECT_ALL);
 
             while (resultSet.next()){
-                Person person = new Person(resultSet.getString("firstname"),
+                Person person = new Person(resultSet.getInt("id"), resultSet.getString("firstname"),
                         resultSet.getString("lastname"),
                         resultSet.getInt("age"), resultSet.getString("gender"));
                 persons.add(person);
@@ -79,4 +79,5 @@ public class DBReader {
                     ". URL [%s], name [%s], pass [%s]", URL, USER_NAME, USER_PASSWORD));
         }
     }
+
 }

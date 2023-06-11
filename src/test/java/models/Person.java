@@ -3,7 +3,8 @@ package models;
 import com.opencsv.bean.CsvBindByName;
 
 public class Person {
-
+    @CsvBindByName(column = "id")
+    private int id;
     @CsvBindByName(column = "firstname")
     private String firstName;
     @CsvBindByName(column = "lastname")
@@ -13,11 +14,20 @@ public class Person {
     @CsvBindByName(column = "gender")
     private String gender;
 
-    public Person(String firstName, String lastName, int age, String gender) {
+    public Person(int id, String firstName, String lastName, int age, String gender) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.age = age;
         this.gender = gender;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getFirstName() {
