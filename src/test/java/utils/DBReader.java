@@ -12,7 +12,7 @@ public class DBReader {
     private final static String USER_PASSWORD = "q1w2e3r4";
     private final static String QUERY_SELECT_ALL = "select * from public.person";
     private final static String QUERY_INSERT = "INSERT INTO public.person (id, firstname, lastname, age, gender) values (?, ?, ?, ?, ?)";
-    private final static String QUERY_UPDATE = "update public.person set age=? where id=?";
+    private final static String QUERY_UPDATE = "UPDATE public.person set age=? where id=?";
     private final static String QUERY_DELETE = "delete from public.person where id=?";
 
     public static List<Person> getPersonsFromDB(){
@@ -57,8 +57,9 @@ public class DBReader {
         try (Connection connection = DriverManager.getConnection(URL, USER_NAME, USER_PASSWORD)) {
 
             PreparedStatement preparedStatement = connection.prepareStatement(QUERY_UPDATE);
-            preparedStatement.setInt(1, id);
-            preparedStatement.setInt(2, age);
+            preparedStatement.setInt(1, age);
+            preparedStatement.setInt(2, id);
+
             preparedStatement.executeUpdate();
 
         } catch (SQLException exception) {
@@ -79,5 +80,4 @@ public class DBReader {
                     ". URL [%s], name [%s], pass [%s]", URL, USER_NAME, USER_PASSWORD));
         }
     }
-
 }
